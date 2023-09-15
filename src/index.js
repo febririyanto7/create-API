@@ -7,19 +7,9 @@ const middlewareLogRequest = require('./middleware/logs');
 const app = express();
 
 app.use(middlewareLogRequest);
+app.use(express.json());
 
 app.use('/users', usersRoutes);
-
-app.get("/", (req, res) => {
-    res.json({
-        nama: "Febri Riyanto",
-        email: "febririyanto2106@gmail.com"
-    });
-});
-
-app.post("/", (req, res) => {
-    res.send('Hello Post Method');
-});
 
 app.listen(4000, () => {
     console.log('Server berhasil di running di port 4000');
